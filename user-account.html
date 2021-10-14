@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="dashboard-sidebar">
+        <div class="inner-header text-center">
+            <div class="logo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <!-- <div class="menu-toggle mobile-only"><span class="toggle-btn"></span></div> -->
+        </div>
+        <div class="sidebar-menu menu-wrapper">
+            <ul class="m-0 p-0 menu">
+                <li class="menu-item active"><a href="#" class="menu-link">
+                    <img src="images/local_atm.png" alt=""> WALLET
+                </a></li>
+                <li class="menu-item"><a href="#" class="menu-link">
+                    <img src="images/local_offer.png" alt=""> VOTING
+                </a></li>
+                <li class="menu-item"><a href="#" class="menu-link">
+                    <img src="images/camera.png" alt=""> PORTAL
+                </a></li>
+                <li class="menu-item"><a href="#" class="menu-link">
+                    <img src="images/people.png" alt=""> FORUM
+                </a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="dashboard-content-section">
+        <div class="dashboard-content-header d-flex">
+            <div class="page-heading header-page-heading">
+                <h2 class="heading-1">
+                    MY WALLET
+                </h2>
+            </div>
+            <div class="user-account">
+                <div class="user-account-wrap position-relative">
+                    <span class="user-icon-wrap d-inline-block"><img src="images/user.png" alt=""></span>
+                    <div class="user-dropdown">
+                        <ul class="m-0 p-0">
+                            <li><a href="">Accounts Settings</a></li>
+                            <li><a href="">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-contet-body">
+            <div class="page-heading wallet-page d-none">
+                <h2 class="heading-1">
+                    MY WALLET
+                </h2>
+            </div>
+            <div class="d-flex dashboard-block-wrapper">
+                <div class="account-details">
+                    <div class="UKC-coins-option">
+                        <div class="UKC-coins-option-wrap">
+                            <div class="coin-option-wrapper">
+                                <h4 class="heading-3">UKC COIN</h4>
+                                <div class="total-coins mt-1 mb-1">
+                                    <h1 class="heading-1">
+                                        <img src="images/coin-icon.png" alt=""> 0.00                                </h1>
+                                </div>
+                                <div class="">
+                                    <a href="" class="UKC-btn mb-1 d-block text-center">GET UKC COIN</a>
+                                    <a href="" class="UKC-btn d-block text-center disabled">WITHDRAW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="UKC-chart">
+                        <div class="ukc-chart-wrap">
+                            <canvas id="myChart" height="100px"></canvas>
+                        </div>
+                    </div>
+                    <div class="nfts-block mt-2 w-100">
+                        <div class="page-heading">
+                            <h1 class="heading-1">MY NFTS</h1>
+                        </div>
+                        <div class="no-nfts mt-2">
+                            <div class="text-center"> 
+                                <p class="text-white mb-2">NO UKC NFTS TO DISPLAY</p>
+                                <a href="" class="UKC-btn disabled d-inline-block">
+                                    UKC NFT STORE COMING SOON
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <div class="recent-activity-wrap">
+                        <div class="recent-heading">
+                            RECENT ACTIVITY
+                        </div>
+                        <div>
+                            <span class="text-white d-block mb-1">PURCHASED 2 TICKETS</span>
+                            <div class="d-flex">
+                                <span class="text-gray">12.24.2021</span> <span class="text-danger ml-2">- 120 UKC</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-white d-block mb-1">PURCHASED 2 TICKETS</span>
+                            <div class="d-flex">
+                                <span class="text-gray">12.24.2021</span> <span class="text-danger ml-2">- 120 UKC</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-white d-block mb-1">PURCHASED 2 TICKETS</span>
+                            <div class="d-flex">
+                                <span class="text-gray">12.24.2021</span> <span class="text-danger ml-2">- 120 UKC</span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-white d-block mb-1">PURCHASED 2 TICKETS</span>
+                            <div class="d-flex">
+                                <span class="text-gray">12.24.2021</span> <span class="text-danger ml-2">- 120 UKC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // === include 'setup' then 'config' above ===
+        const labels = [
+            '1h',
+            '1D',
+            '1W',
+            '1M',
+            '1Y',
+            'All',
+            ];
+            const data = {
+            labels: labels,
+            datasets: [{
+                label: 'UKC Coins',
+                backgroundColor: 'rgb(112, 69, 181)',
+                borderColor: 'rgb(112, 69, 181)',
+                data: [0, 0, 15, 0, 0, 0, 0],
+                easing: 'linear',
+            }]
+            };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {}
+            };
+
+            
+        var myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+      </script>
+      
+</body>
+</html>

@@ -17,3 +17,9 @@ $(document).bind('click', function(e) {
     if (! $clicked.parents().hasClass("drop-down"))
         $(".drop-down .options").hide();
 });
+
+$(document).ready(function(e){
+    $(".menu-toggle").on("click", function(){
+        $(".UKC-menu").toggleClass("show");
+    })
+})

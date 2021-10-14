@@ -176,6 +176,12 @@ input{
 .mt-2{
     margin-top:2rem
 }
+.ml-2{
+    margin-left:2rem
+}
+.p-0{
+    padding: 0;
+}
 .p-1{
     padding: 1rem;
 }
@@ -330,6 +336,10 @@ input{
         width: 100%;
         height: 100vh;
         z-index: 2;
+        transition: all 0.3s ease;
+    }
+    .UKC-menu.show{
+        left:0;
     }
     .UKC-menu ul{
         flex-direction: column;
@@ -524,6 +534,15 @@ input{
 .text-white{
     color: #fff;
 }
+.text-gray{
+    color:#ccc;
+}
+.text-danger{
+    color: #E96060;
+}
+.text-success{
+    color: #82D786;
+}
 .currency-select-wrap,.UKC-coin-convert{
     background-color: #171717;
     border-radius: 8px;
@@ -642,18 +661,54 @@ input{
     background-color: #7045B5;
     border-radius: 15px;
   }
-  .wallet-code span{
-    display: inline-block;
-    max-width: 100px;
-    padding: 10px 12px;
-    overflow:hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #82D786;
-    border-radius: 25px;
-    border:1px solid #82D786;
-    background-color: rgba(130, 215, 134,0.3);
-  }
+.wallet-code span{
+display: inline-block;
+max-width: 100px;
+padding: 10px 12px;
+overflow:hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+color: #82D786;
+border-radius: 25px;
+border:1px solid #82D786;
+background-color: rgba(130, 215, 134,0.3);
+}
+.convert-courrency-way{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px 0 30px;
+    position: relative;
+    }
+    .convert-courrency-way:before{
+        content: '';
+        position: absolute;
+        top:50%;
+        left:25%;
+        width:50%;
+        height: 2px;
+        background-color: #ccc;
+    }
+    .convert-courrency-way > div{
+        background-color: #323232;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 99;
+        padding:10px;
+    }
+    .convert-courrency-way > div img{
+        padding:0 10px;
+    }
+    .verified-account-alert{
+        margin-bottom: -85px;
+        margin-top: 20px;
+        margin-left:-20px;
+        margin-right:-20px;
+    }
 @media(max-width:768px){
     .UKC-middle-box,.UKC-middle-box.large-box {
         width:90%;
@@ -664,5 +719,214 @@ input{
     .about-boxs-wrap{
         grid-template-columns: 100% ;
         grid-gap:20px;
+    }
+}
+
+
+
+/* dashboard */
+.dashboard-sidebar{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    width: 300px;
+    background-color: #282828;
+    padding: 15px;
+}
+.dashboard-sidebar .inner-header{
+    padding: 25px 0;
+}
+.dashboard-sidebar .sidebar-menu .menu{
+    list-style: none;
+    margin-top:5rem;
+}
+.dashboard-sidebar .sidebar-menu .menu .menu-item{
+    margin: 25px 0;
+}
+.dashboard-sidebar .sidebar-menu .menu .menu-item .menu-link{
+    display: block;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    opacity: 0.5;
+    text-align: center;
+}
+.dashboard-sidebar .sidebar-menu .menu .menu-item .menu-link img{
+    margin-right: 15px;
+}
+.dashboard-sidebar .sidebar-menu .menu .menu-item.active .menu-link{
+    opacity: 1;
+}
+.dashboard-content-section{
+    padding-left: 325px;
+    padding-right: 15px;
+}
+.dashboard-content-header{
+    padding:15px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+.page-heading .heading-1{
+    font-size: 2rem;
+    color: #fff;
+}
+.user-icon-wrap{
+    padding: 15px;
+}
+.user-dropdown{
+    position: absolute;
+    top:110%;
+    right:0;
+    width:200px;
+    opacity: 0;
+    z-index: -999;
+    transition: all 0.5s ease;
+}
+.user-account-wrap:hover  .user-dropdown{
+    opacity: 1;
+    z-index: 9;
+    top:100%;
+}
+.user-account-wrap .user-icon-wrap img{
+    border:2px solid transparent;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.user-account-wrap:hover .user-icon-wrap img{
+    border:2px solid #4949C1;
+}
+.user-dropdown ul{
+    border:1px solid #4949C1;
+    border-radius: 8px;
+    text-align: right;
+    list-style: none;
+    text-transform: uppercase;
+}
+.user-dropdown ul a{
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #ccc;
+}
+.dashboard-block-wrapper{
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.account-details{
+    width:calc(100% - 330px);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.w-100{
+    width:100% ;
+}
+.UKC-coins-option{
+    width: 30%;
+    
+}
+.UKC-coins-option-wrap{
+    border:1px solid #7045B5;
+    border-radius: 15px;
+    padding: 20px;
+}
+.UKC-coins-option .heading-3{
+    margin:0;
+    color:#ccc;
+    font-size: 24px;
+}
+.UKC-coins-option .total-coins h1{
+    font-size: 42px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin:15px 0;
+    justify-content: center;
+}
+.UKC-coins-option .total-coins h1 img{
+    padding: 0 15px 0 0;
+}
+.UKC-chart{
+    width: 68%;
+}
+.ukc-chart-wrap{
+    border-radius: 8px;
+    background-color: #101010;
+    padding:15px;
+}
+.no-nfts {
+    background-color: #323232;
+    border-radius: 15px;
+    padding: 20px;
+}
+.no-nfts p{
+    font-size: 20px;
+    font-weight: 500;
+}
+.no-nfts .UKC-btn{
+    width:auto;
+}
+.recent-activity{
+    width:300px;
+}
+.recent-activity-wrap{
+    border-radius: 15px;
+    background-color: #282828;
+    overflow: hidden;
+}
+.recent-activity-wrap > div{
+    padding:15px;
+}
+.recent-activity-wrap > div.recent-heading{
+    font-size: 24px;
+    font-weight: 500;
+    color: #ccc;
+}
+.recent-activity-wrap > div:nth-child(even){
+    background-color: #4B4B4B;
+}
+@media(max-width:1200px){
+    .account-details .UKC-coins-option{
+        order:2;
+        width:100%
+    }
+    .account-details .UKC-chart{
+        order:1;
+        width:100%;
+        margin-bottom: 30px;
+    }
+    .account-details .nfts-block {
+        order:3;
+    }
+}
+@media(max-width:991px){
+    .dashboard-block-wrapper{
+        flex-wrap:wrap;
+    }
+    .recent-activity,.account-details{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+@media(max-width:768px){
+    .dashboard-content-section{
+        padding: 15px;
+    }
+    .dashboard-sidebar{
+        left: -300px;
+    }
+    .header-page-heading{
+        width:0;
+        height: 0;
+        overflow: hidden;
+    }
+    .dashboard-contet-body .page-heading.wallet-page{
+        display: block !important;
+    }
+    .dashboard-sidebar .inner-header{
+        position: absolute;
+        left:310px;
     }
 }
